@@ -1,4 +1,6 @@
 import '../week3/methods.dart';
+import 'class_detail/model/user_model.dart';
+import 'class_detail/model/user_model2.dart';
 
 void main() {
   //müşteri adı var, parası var, yasi var
@@ -71,6 +73,21 @@ void main() {
       print("tebrikler kazandınız");
     }
   }
+
+  //müşteri id si 33 olana indirim yap
+  if (user3.isSpecialUser("33")) {
+    user3.money += 5;
+    print(user3.money);
+    print("para eklendi");
+  }
+
+  ///
+
+  User2 newUser2 = User2('bank', 15);
+  newUser2.money += 5;
+  newUser2.money = null;
+
+  print(newUser2.toString());
 }
 
 //yeni bir method olsun bu methodda hesabı olmayanları ve parası olmayanları yok sayyalım
@@ -93,51 +110,5 @@ int? controlMoney(int? money) {
   }
 }
 
-//adi olmak zorunda
-//parasi olmak zorunda
-//yasını vermeyebilir
-//sehir vermeyebilir
-// city yoksa ist say
-class User {
-  // özellikleri tanımlamalıyız ve özellikleri neler
-  //data lara başlangıçda değer olmalı yada
-  late final String
-      name; // late anlamı bu değişken sonradan dolacak ve anlam kazanacak
-  late final int money;
-  late final int? age;
-  late final String? city;
-
-  late final String
-      userCode; //late final dersek bunu constructorda kullanmalızyız.
-
-  final String id;
-
-  User(String name, int money, {required this.id, int? age, String? city}) {
-    //constructor
-    //{} arasına yazarsak opsiyonel parametre alıyor.
-    this.name = name;
-    this.age = age;
-    this.money = money;
-    this.city = city;
-
-    userCode = (city ?? 'ist') + name; // city yoksa ist kanul et
-  }
-}
-
 //
-class User2 {
-  // özellikleri tanımlamalıyız ve özellikleri neler
-  //data lara başlangıçda değer olmalı yada
-  final String
-      name; // late anlamı bu değişken sonradan dolacak ve anlam kazanacak
-  final int money;
-  final int? age;
-  final String? city;
 
-  late final String
-      userCode; //late final dersek bunu constructorda kullanmalızyız.
-
-  User2(this.name, this.money, {this.age, this.city}) {
-    userCode = (city ?? "ist") + name;
-  }
-}
