@@ -15,6 +15,10 @@ void main() {
     case Mouses.a4:
       break;
   }
+
+  if (customerMouse.isCheckName('a4')) {
+    print('aaa');
+  }
 }
 
 enum Mouses {
@@ -22,4 +26,10 @@ enum Mouses {
   apple,
   logitech,
   a4,
+}
+
+extension MouseSelecedExtension on Mouses {
+  bool isCheckName(String name) {
+    return this.name == name;
+  }
 }
