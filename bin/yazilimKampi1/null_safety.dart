@@ -1,15 +1,46 @@
 void main(List<String> args) {
-  int? money1;
+  var money1 = "5";
 
-  int money2 = 1;
+//final run-time daki son değeri alır
+  //final int totalMoney = 5;
+//sınıftan bir obje oluşturabiliri
 
-  if (money1 != null) {
-    getMoney(money1);
-  }
+  HokkabazHuman snakeSerdar = HokkabazHuman("Serdar", 10);
+  HokkabazHuman snakeAhmet = HokkabazHuman("Ahmet", 1000);
+
+  // if (snakeSerdar.getMyMoney(10) == 20) {
+  //   print("serdar niye soylemedin boyle oldugunu");
+  // } else {
+  //   throw ('polisss ${snakeSerdar.tckn ?? 'serdari arayin'} ');
+  // }
+  print(snakeAhmet.totalMoney);
+
+  print(snakeSerdar.fakeMoney);
 }
 
-void getMoney(int password) {
-  if (password == null) {
-    throw ("polisss");
+class NormalHuman {
+  String name;
+  int money;
+
+  NormalHuman(this.name, this.money);
+}
+
+class HokkabazHuman {
+  String name;
+  int fakeMoney;
+  String? tckn;
+  late final double totalMoney;
+
+  HokkabazHuman(this.name, this.fakeMoney) {
+    if (fakeMoney > 500) {
+      totalMoney = fakeMoney + fakeMoney * 2;
+    }
+  }
+
+//ben sna 10 tl ekleyip getireceğim.
+  int getMyMoney(int money) {
+    fakeMoney += 5;
+
+    return money + 5;
   }
 }
